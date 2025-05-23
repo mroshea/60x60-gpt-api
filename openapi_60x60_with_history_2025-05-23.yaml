@@ -1,0 +1,95 @@
+
+openapi: 3.1.0
+info:
+  title: LogBot 60x60 History API
+  version: 1.0.0
+servers:
+  - url: https://hook.us2.make.com/ginp5of5r6lhhnzrbmicihah4uhdkbed
+
+paths:
+  /history:
+    get:
+      summary: Retrieve the latest 30 entries from the 60x60 health sheet
+      operationId: getHealthHistory
+      responses:
+        '200':
+          description: Array of recent entries from the sheet
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    Date:
+                      type: string
+                    Fasting Start:
+                      type: string
+                    Fasting End:
+                      type: string
+                    Fasting Hours:
+                      type: number
+                    Meal 1:
+                      type: string
+                    Meal 2:
+                      type: string
+                    Meal 3:
+                      type: string
+                    Snacks:
+                      type: string
+                    Protein_g:
+                      type: number
+                    Fat_g:
+                      type: number
+                    Carbs_g:
+                      type: number
+                    Fiber_g:
+                      type: number
+                    Calories:
+                      type: number
+                    Magnesium_mg:
+                      type: number
+                    Potassium_mg:
+                      type: number
+                    Calcium_mg:
+                      type: number
+                    Zinc_mg:
+                      type: number
+                    Iron_mg:
+                      type: number
+                    Vitamin_D3_IU:
+                      type: number
+                    Vitamin_B12_mcg:
+                      type: number
+                    Choline_mg:
+                      type: number
+                    Creatine_g:
+                      type: number
+                    Weight_lb:
+                      type: number
+                    Waist_in:
+                      type: number
+                    Chest_in:
+                      type: number
+                    Steps:
+                      type: integer
+                    Workout Type:
+                      type: string
+                    Workout Duration_min:
+                      type: number
+                    Sleep Hours:
+                      type: number
+                    Sleep Quality_1_10:
+                      type: number
+                    Mood_1_10:
+                      type: number
+                    Energy_1_10:
+                      type: number
+                    Cravings_Y_N:
+                      type: string
+                    Digestive Notes:
+                      type: string
+                    NSVs:
+                      type: string
+                    Notes:
+                      type: string
