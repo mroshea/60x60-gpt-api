@@ -1,0 +1,77 @@
+
+openapi: 3.0.0
+info:
+  title: Log to 60x60 Health Sheet
+  version: 1.0.0
+servers:
+  - url: "https://hook.us2.make.com/em5vbzoohq5s19lrg0yldwott1i2m1bb"
+paths:
+  /log:
+    post:
+      summary: Send structured health data to Make.com
+      operationId: logHealthData
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/LogEntry"
+      responses:
+        "200":
+          description: Log successfully sent
+components:
+  schemas:
+    LogEntry:
+      type: object
+      properties:
+        date:
+          type: string
+          example: "2025-05-22"
+        meals:
+          type: array
+          items:
+            type: object
+            properties:
+              time:
+                type: string
+              food:
+                type: string
+              notes:
+                type: string
+              macros:
+                type: object
+                properties:
+                  protein_g:
+                    type: number
+                  fat_g:
+                    type: number
+                  carbs_g:
+                    type: number
+                  calories:
+                    type: number
+        supplements:
+          type: array
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+              dose:
+                type: string
+              time:
+                type: string
+              purpose:
+                type: string
+        activity:
+          type: object
+          properties:
+            steps:
+              type: integer
+            distance_miles:
+              type: number
+            active_energy_kcal:
+              type: integer
+            weight_trend:
+              type: string
+        summary:
+          type: string
